@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
+
 
 module.exports = () => {
   return {
@@ -15,12 +17,17 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
+      new WorkboxPlugin.GenerateSW({
+        // Other Workbox configuration options...
+        // Make sure the swDest is set to the root directory if required
+        swDest: "/src-sw.js", // This will output the service worker to the root
+      }),
       new HtmlWebpackPlugin({
         template: "./index.html",
         title: "73x7 3d170r PWA",
       }),
       new InjectManifest({
-        swSrc: "./src-sw.js",
+        swSrc: "/src-sw.js",
         swDest: "service-worker.js",
       }),
       new WebpackPwaManifest({

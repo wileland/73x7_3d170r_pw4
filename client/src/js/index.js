@@ -1,33 +1,40 @@
-import { Workbox } from 'workbox-window';
-import Editor from './editor';
-import './database';
-import '../css/style.css';
+import { Workbox } from "workbox-window";
+import Editor from "./editor";
 
-const main = document.querySelector('#main');
-main.innerHTML = '';
+// Import styles
+import "../css/style.css";
 
-const loadSpinner = () => {
-  const spinner = document.createElement('div');
-  spinner.classList.add('spinner');
-  spinner.innerHTML = `
-  <div class="loading-container">
-  <div class="loading-spinner" />
-  </div>
-  `;
-  main.appendChild(spinner);
-};
-
+// Initialize the editor
 const editor = new Editor();
 
-if (typeof editor === 'undefined') {
-  loadSpinner();
-}
-
 // Check if service workers are supported
-if ('serviceWorker' in navigator) {
-  // register workbox service worker
-  const workboxSW = new Workbox('/src-sw.js');
-  workboxSW.register();
+if ("serviceWorker" in navigator) {
+  // Register the Workbox service worker
+  const workboxSW = new Workbox("/src-sw.js");
+
+  workboxSW
+    .register()
+    .then(() => {
+      console.log("Service worker registered successfully");
+    })
+    .catch((error) => {
+      console.error("Service worker registration failed:", error);
+    });
+
+  // Add an event listener to customize the service worker update cycle
+  workboxSW.addEventListener("installed", (event) => {
+    if (event.isUpdate) {
+      // Display a notification to inform the user about new content
+      const updateNotification = new Notification("New Content Available", {
+        body: "Click to refresh and load the latest version.",
+      });
+
+      // Handle user interaction with the notification
+      updateNotification.addEventListener("click", () => {
+        window.location.reload();
+      });
+    }
+  });
 } else {
-  console.error('Service workers are not supported in this browser.');
+  console.error("Service workers are not supported in this browser.");
 }

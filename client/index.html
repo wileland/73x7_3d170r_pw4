@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pWa: 73x7.3d170r</title>
 
   <!-- Link to the manifest.json file -->
   <link rel="manifest" href="manifest.json">
 
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
-  </link>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
-  </script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
-  </script>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
-  </link>
+  <!-- Include Codemirror CSS and JavaScript from a CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
+  
+  <!-- Add a favicon -->
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+  <!-- Add a description for better SEO -->
+  <meta name="description" content="Just Another Text Editor - A Progressive Web Application (PWA)">
+
+  <!-- Add CSS styles for the page -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <nav id="navbar">
     <div class="nav-btn">
-      <a class="btn btn-sm btn-dark" id="buttonInstall" role="button">Install!</a>
+      <button class="btn btn-sm btn-dark" id="buttonInstall" aria-label="Install PWA">Install!</button>
     </div>
-    <h1> Just Another Text Editor</h1>
+    <h1>Just Another Text Editor</h1>
     
     <div class="navbar-brand">
-      <img src="./images/pwa1(96).png" alt="App Icon" />
+      <img src="./images/pwa1(96).png" alt="App Icon">
     </div>
   </nav>
 
@@ -39,5 +41,7 @@
     </div>
   </main>
   
+  <!-- Include your JavaScript bundle at the end of the body for faster page loading -->
+  <script src="dist/index.bundle.js"></script>
 </body>
 </html>
