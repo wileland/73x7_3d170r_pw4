@@ -3,8 +3,8 @@
   "short_name": "TextEditor",
   "icons": [
     {
-      "src": "images/pwa1(192).png",
-      "sizes": "192x192",
+      "src": "images/pwa1(96).png",
+      "sizes": "92x92",
       "type": "image/png"
     },
     {
@@ -13,8 +13,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#225ca3",
+  "background_color": "#225ca3",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait"
