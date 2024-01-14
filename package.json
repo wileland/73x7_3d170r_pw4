@@ -4,13 +4,13 @@
   "description": "A browser-based text editor that runs as a Progressive Web Application (PWA).",
   "main": "server.js",
   "scripts": {
-    "start:dev": "webpack serve --config webpack.config.js --mode development",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "build": "webpack --config webpack.config.js --mode production",
-    "client-install": "npm install --prefix client",
-    "postinstall": "npm run client-install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "start": "node server/server.js",
+  "dev": "nodemon server/server.js",
+  "server": "nodemon server/server.js --ignore client",
+  "build": "webpack --config webpack.config.js --mode production",
+  "client-install": "npm install --prefix client",
+  "postinstall": "npm run client-install",
+  "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "text-editor",

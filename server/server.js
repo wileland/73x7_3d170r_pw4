@@ -5,7 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files from the 'client/dist' directory (update if using a build process)
-app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(path.join(__dirname, "../client")));
+
 
 // Middleware for parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));

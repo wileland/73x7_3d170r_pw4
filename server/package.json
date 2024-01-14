@@ -4,8 +4,8 @@
   "description": "Back-end for the 73x7 3d170r PWA",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
     "server": "nodemon server.js --ignore client"
   },
   "keywords": [
